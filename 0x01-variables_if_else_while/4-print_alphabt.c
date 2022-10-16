@@ -1,4 +1,4 @@
-nclude <stdio.h>
+#include <stdio.h>
 
 /**
  *main-program entry point.
@@ -17,4 +17,3 @@ int main(void)
 	putchar('\n');
 	return (0);
 }
-
