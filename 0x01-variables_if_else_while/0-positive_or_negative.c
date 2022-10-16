@@ -22,4 +22,4 @@ int main(void)
 	else if (n == 0)
 		printf("%d is zero\n", n);
 	return (0);
--}
+}
