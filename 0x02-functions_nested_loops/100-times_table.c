@@ -1,19 +1,20 @@
-#include "main.h"
+#include <stdio.h>
+
 /**
- *  * print_alphabet_x10 - prints all alphabets in lowercase 10 times.
- *   * Return: On success 1.
- *    */
-void print_alphabet_x10(void)
+ *  * main - Prints natural numbers below 1024 that are
+ *   * multiplies of 3 or 5
+ *    *
+ *     * Return: Always 0.
+ *      */
+int main(void)
 {
-		char i, k;
+		int a, b;
 
-			for (k = 0; k < 10; k++)
+			for (a = 1; a < 1024; a++)
 					{
-
-								for (i = 'a'; i <= 'z'; i++)
-											{
-															_putchar(i);
-																	}
-										_putchar('\n');
-											}
+								if ((a % 3) == 0 || (a % 5) == 0)
+												b += a;
+									}
+				printf("%d\n", b);
+					return (0);
 }
