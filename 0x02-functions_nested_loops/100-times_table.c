@@ -1,46 +1,19 @@
-include "main.h"
-
+#include "main.h"
 /**
- *  * print_times_table - Prints the n times table
- *   *
- *    * @n: number times table (0 < n <= 15)
- *     *
- *      * Return: no return
- *       */
-void print_times_table(int n)
+ *  * print_alphabet_x10 - prints all alphabets in lowercase 10 times.
+ *   * Return: On success 1.
+ *    */
+void print_alphabet_x10(void)
 {
-		int a, b, op;
+		char i, k;
 
-			if (n >= 0 && n <= 15)
+			for (k = 0; k < 10; k++)
 					{
-								for (a = 0; a <= n; a++)
+
+								for (i = 'a'; i <= 'z'; i++)
 											{
-															_putchar(48);
-																		for (b = 1; b <= n; b++)
-																						{
-																											op = a * b;
-																															_putchar(44);
-																																			_putchar(32);
-																																							if (op <= 9)
-																																												{
-																																																		_putchar(32);
-																																																							_putchar(32);
-																																																												_putchar(op + 48);
-																																																																}
-																																											else if (op <= 99)
-																																																{
-																																																						_putchar(32);
-																																																											_putchar((op / 10) + 48);
-																																																																_putchar((op % 10) + 48);
-																																																																				}
-																																															else
-																																																				{
-																																																										_putchar(((op / 100) % 10) + 48);
-																																																															_putchar(((op / 10) % 10) + 48);
-																																																																				_putchar((op % 10) + 48);
-																																																																								}
-																																																		}
-																					_putchar('\n');
-																							}
-									}
+															_putchar(i);
+																	}
+										_putchar('\n');
+											}
 }
