@@ -3,43 +3,65 @@
 #include <stdlib.h>
 
 /**
- *
- *  * _strdup - returns a pointer to a newly allowacted space in memory
- *
- *   * @str: string
- *
- *    * Return: strout
- *
- *     */
 
-char *_strdup(char *str)
+ * str_concat - concatenates two strings.
+
+ * @s1: first string
+
+ * @s2: second string
+
+ * Return: strout
+
+ */
+
+char *str_concat(char *s1, char *s2)
 
 {
 
-		char *strout;
+	char *strout;
 
-			unsigned int i, j;
+	unsigned int i, j, k, limit;
 
 
 
-				if (str == NULL)
+	if (s1 == NULL)
 
-							return (NULL);
+		s1 = "";
 
-					for (i = 0; str[i] != '\0'; i++)
+	if (s2 == NULL)
 
-								;
+		s2 = "";
 
-						strout = (char *)malloc(sizeof(char) * (i + 1));
+	for (i = 0; s1[i] != '\0'; i++)
 
-							if (strout == NULL)
+		;
 
-										return (NULL);
+	for (j = 0; s2[j] != '\0'; j++)
 
-								for (j = 0; j <= i; j++)
+		;
 
-											strout[j] = str[j];
+	strout = malloc(sizeof(char) * (i + j + 1));
 
-									return (strout);
+	if (strout == NULL)
+
+	{
+
+		free(strout);
+
+		return (NULL);
+
+	}
+
+	for (k = 0; k < i; k++)
+
+		strout[k] = s1[k];
+
+	limit = j;
+
+	for (j = 0; j <= limit; k++, j++)
+
+		strout[k] = s2[j];
+
+	return (strout);
 
 }
