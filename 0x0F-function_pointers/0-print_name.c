@@ -1,37 +1,27 @@
 #include<stddef.h>
 
-
-
 /**
  *
- *  * * array_iterator - a function ...
+ *  * * print_name - a function ...
  *
- *   * * @array: the tab of integer
+ *   * * @name: the chaine
  *
- *    * * @size: the number
+ *    * * @f: the function
  *
- *     * * @action: the function
+ *     * * Return: 1 or 0
  *
- *      * * Return: 1 or 0
- *
- *       */
+ *      */
 
 
 
-void array_iterator(int *array, size_t size, void (*action)(int))
+void print_name(char *name, void (*f)(char *))
 
 {
 
-		size_t i = 0;
+		if (f == NULL)
 
+				return;
 
-
-			if (action == NULL || array == NULL)
-
-					return;
-
-				for (i = 0; i < size; i++)
-
-						(*action)(array[i]);
+			(*f)(name);
 
 }
