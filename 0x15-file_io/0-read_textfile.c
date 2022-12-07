@@ -10,8 +10,6 @@
 
 #include <unistd.h>
 
-#include <string.h>
-
 
 
 #define BUF_SIZE 9096
@@ -20,11 +18,11 @@
 
 /**
  *
- *  * create_file - a function ...
+ *  * read_textfile - a function ...
  *
  *   * @filename: the list
  *
- *    * @text_content: the number
+ *    * @letters: the number
  *
  *     *
  *
@@ -32,40 +30,50 @@
  *
  *       */
 
-int create_file(const char *filename, char *text_content)
+ssize_t read_textfile(const char *filename, size_t letters)
 
 {
 
-		int fd;
+		int fp, ret;
+
+			char buf[BUF_SIZE + 1];
+
+				size_t cpt = 1;
 
 
 
-			if (filename == NULL)
+					if (filename == NULL)
 
-						return (-1);
-
-
-
-				fd = open(filename, O_CREAT | O_RDWR, 600);
+								return (0);
 
 
 
-					if (fd == -1)
-
-								return (-1);
+						fp = open(filename, O_RDONLY);
 
 
 
-						chmod(filename, 644);
+							if (fp == -1)
+
+										return (0);
 
 
 
-							if (text_content != NULL)
+								while ((ret = read(fp, buf, letters)))
 
-										write(fd, text_content, strlen(text_content));
+										{
 
-								close(fd);
+													buf[ret] = '\0';
 
-									return (1);
+															printf("%s", buf);
+
+																	cpt = cpt + ret;
+
+																		}
+
+
+
+									close(fp);
+
+										return (cpt - 1);
 
 }
